@@ -1,0 +1,39 @@
+{
+  "server": {
+    "port": 3100,
+    "host": "0.0.0.0"
+  },
+  "semantic": {
+    "enabled": true,
+    "weight": 0.4,
+    "model": "openai/openai/gpt-oss-120b",
+    "api_key": "${LLM_FILTER_API_KEY}",
+    "base_url": "https://litellm.mlops.itlabs.io",
+    "timeout": 10000,
+    "fallback_score": 0.5
+  },
+  "behavioral": {
+    "enabled": true,
+    "weight": 0.3,
+    "session_tracking": true,
+    "max_session_blocks": 5
+  },
+  "pattern": {
+    "enabled": true,
+    "weight": 0.3,
+    "entropy_threshold": 5.0,
+    "max_repetition": 10,
+    "special_char_ratio": 0.3,
+    "detect_encodings": ["base64", "hex", "unicode", "html_entity"]
+  },
+  "thresholds": {
+    "block": 0.75,
+    "review": 0.5
+  },
+  "logging": {
+    "level": "info",
+    "log_blocked": true,
+    "log_allowed": false,
+    "log_review": true
+  }
+}
